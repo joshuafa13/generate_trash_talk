@@ -28,4 +28,4 @@ This web app will generate trash talk according to the occupation you selected
 - download npm
   `npm install`
 - run with nodemon
-  `npm run dev`
+  `nodemon app.js`
