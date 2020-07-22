@@ -12,26 +12,25 @@ function generateTrashTalk(options) {
 	}
 
 	const phrase = ['很簡單', '很容易', '很快', '很正常']
+
 	let arr = Object.keys(options)
 	let trashTalk = ''
-	if (arr.length === 0) {
-		trashTalk = '請選擇一個職業'
-	}
-	if (arr.length === 2 || arr.length === 3) {
-		trashTalk = '不要選擇超過一個職業'
-	}
 
-	if (options.engineer === 'on' && arr.length === 1) {
+	if (options.engineer === 'on')
 		trashTalk = `身為一個工程師, ${random(task.engineer)}, ${random(phrase)}`
-	}
-	if (options.designer === 'on' && arr.length === 1) {
+
+	if (options.designer === 'on')
 		trashTalk = `身為一個設計師, ${random(task.designer)}, ${random(phrase)}`
-	}
-	if (options.entrepreneur === 'on' && arr.length === 1) {
+
+	if (options.entrepreneur === 'on')
 		trashTalk = `身為一個創業者, ${random(task.entrepreneur)}, ${random(
 			phrase
 		)}`
-	}
+
+	if (arr.length === 0) trashTalk = '請選擇一個職業'
+
+	if (arr.length > 1) trashTalk = '不要選擇超過一個職業'
+
 	return trashTalk
 }
 
