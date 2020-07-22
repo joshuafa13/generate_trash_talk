@@ -22,9 +22,9 @@ This web app will generate trash talk according to the occupation you selected
 - run terminal
   `cmd+space input terminal => enter`
 - clone project to your local server
-  `git clone https://github.com/joshuafa13/restaurant_list.git`
+  `git clone https://github.com/joshuafa13/generate_trash_talk.git`
 - go to project folder
-  `cd restaurant_list`
+  `cd trash_talk`
 - download npm
   `npm install`
 - run with nodemon
