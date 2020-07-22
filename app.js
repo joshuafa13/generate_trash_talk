@@ -20,9 +20,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
 	const options = req.body
-
 	const trashTalk = generateTrashTalk(options)
-	console.log(options)
 	res.render('index', { trashTalk, options })
 })
 
