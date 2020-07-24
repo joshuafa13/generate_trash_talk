@@ -5,6 +5,16 @@ const exphbs = require('express-handlebars')
 const port = 3000
 const bodyParser = require('body-parser')
 const generateTrashTalk = require('./generateTrashTalk')
+const Handlebars = require('handlebars')
+
+// register helper
+Handlebars.registerHelper('ifEqual', function (jobSelected, job, options) {
+	if (jobSelected === job) {
+		return options.fn(this)
+	} else {
+		return options.inverse(this)
+	}
+})
 
 // set template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -19,9 +29,10 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-	const options = req.body
-	const trashTalk = generateTrashTalk(options)
-	res.render('index', { trashTalk, options })
+	const jobSelected = req.body.job
+	console.log(req.body.job)
+	const trashTalk = generateTrashTalk(jobSelected)
+	res.render('index', { trashTalk, jobSelected })
 })
 
 // listen
