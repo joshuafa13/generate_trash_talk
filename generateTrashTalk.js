@@ -4,7 +4,7 @@ function random(array) {
 	return array[index]
 }
 
-function generateTrashTalk(options) {
+function generateTrashTalk(jobSelected) {
 	const task = {
 		engineer: ['加個按鈕', '加新功能', '切個版', '改一點 code'],
 		designer: ['畫一張圖', '改個 logo', '順便幫忙設計一下', '隨便換個設計'],
@@ -13,24 +13,23 @@ function generateTrashTalk(options) {
 
 	const phrase = ['很簡單', '很容易', '很快', '很正常']
 
-	let arr = Object.keys(options)
 	let trashTalk = ''
 
-	if (options.engineer === 'on')
+	if (jobSelected === 'engineer') {
 		trashTalk = `身為一個工程師, ${random(task.engineer)}, ${random(phrase)}`
+	}
 
-	if (options.designer === 'on')
+	if (jobSelected === 'designer') {
 		trashTalk = `身為一個設計師, ${random(task.designer)}, ${random(phrase)}`
+	}
 
-	if (options.entrepreneur === 'on')
-		trashTalk = `身為一個創業者, ${random(task.entrepreneur)}, ${random(
-			phrase
-		)}`
+	if (jobSelected === 'entrepreneur') {
+		trashTalk = `身為一個創業者, ${random(task.entrepreneur)}, ${random(phrase)}`
+	}
 
-	if (arr.length === 0) trashTalk = '請選擇一個職業'
-
-	if (arr.length > 1) trashTalk = '不要選擇超過一個職業'
-
+	if (!jobSelected) {
+		trashTalk = '請選擇一個職業'
+	}
 	return trashTalk
 }
 
